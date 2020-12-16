@@ -15,6 +15,23 @@
     npm install webpack@3.10.0 -D
     npm i jquery -s
     
-    !第三方依赖 单独打包失败？？
-    在webpack4中，CommonsChunkPlugin已经不支持了，替代它的是一个叫SplitChunksPlugin的插件，惊不惊喜，意不意外
+    ! 第三方依赖 单独打包失败？？
+    在webpack4中，CommonsChunkPlugin已经不支持了，替代它的是一个叫SplitChunksPlugin的插件
+    
+    ! 用CommonsChunkPlugin在plugin抽离公共代码后,index.html在浏览器打开，会Uncaught ReferenceError: webpackJsonp is not defined
+    用https://www.cnblogs.com/hcxy/p/7999360.html暂时解决不了
+    
+    4 处理less
+    npm i less-loader --save-dev
+    建立base.less 并在app.js中引入，折行webpack,运行index.html
+    
+    cnpm install extract-text-webpack-plugin --save-dev 使得js文件和css文件单独分开的
+    打包多一个app.min.css   
+    
+    
+    5 tree shaking 去除用不到的方法，变量
+    cnpm install uglifyjs-webpack-plugin --save-dev 后，在webpack.config.js加 new UglifyJsPlugin(),折行webpack,
+    报 Cannot read property 'compilation' of undefined
+    package.json里面降低uglifyjs-webpack-plugin的版本，再install再webpack，无报错
+    
     

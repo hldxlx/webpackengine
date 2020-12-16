@@ -1,6 +1,8 @@
 //配置文件
 const path = require('path')
 const Webpack  = require('webpack')
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
     entry: {
@@ -12,22 +14,6 @@ module.exports = {
         filename: '[name].bundle.js',
         chunkFilename: '[name].chunk.js'
     },
-    plugins: [
-        new Webpack.optimize.CommonsChunkPlugin({
-            name: 'common',
-            minChunks: 2,
-            chunks: ['app', 'page']
-
-        }),
-        new Webpack.optimize.CommonsChunkPlugin({
-            name: 'vender',
-            minChunks: Infinity
-        }),
-        new Webpack.optimize.CommonsChunkPlugin({
-            name: 'manifest',
-            minChunks: Infinity
-        })
-    ],
     module: {
         rules: [
             {
@@ -47,9 +33,26 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/,
-                use: [ 'style-loader', 'css-loader' ]
+                test: /\.less$/,
+                use:  ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use:[
+                        {
+                            loader: 'css-loader'
+                        },
+                        {
+                            loader: 'less-loader'
+                        }
+                    ]
+                })
             }
         ]
-    }
+    },
+    plugins: [
+        new ExtractTextPlugin({
+            filename: '[name].min.css',
+            allChunks: false
+        }),
+        new UglifyJsPlugin()
+    ]
 }
