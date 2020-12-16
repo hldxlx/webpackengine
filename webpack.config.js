@@ -3,6 +3,7 @@ const path = require('path')
 const Webpack  = require('webpack')
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     entry: {
@@ -70,6 +71,10 @@ module.exports = {
         new UglifyJsPlugin(),
         new Webpack.ProvidePlugin({
             $: 'jquery'
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: path.join(__dirname, 'index.html')
         })
     ]
 }

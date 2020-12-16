@@ -47,7 +47,14 @@
     cnpm install url-loader --save-dev    
     
     ! 装img-loader压缩时有问题 暂没解决
-        
+    
+    
+    7 html in webpack
+    cnpm install html-loader --save-dev
+    ! 再在webpack.config.js里配rules
+     再打包后有问题
+                 
+    
          
     
     
