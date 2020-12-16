@@ -53,6 +53,15 @@
     cnpm install html-loader --save-dev
     ! 再在webpack.config.js里配rules
      再打包后有问题
+     
+     08 webpack dev server
+      Failed at the my-webpacktwo@1.0.0 dev script
+     解决方法
+     https://www.jianshu.com/p/ba7cbf6e57f0
+     webpack 3.x 要使用 webpack-dev-server 2.x
+     webpack 4.x 要使用 webpack-dev-server 3.x
+     
+     ! hot  new Webpack.HotModuleReplacementPlugin() 热更新没用 ？？      
                  
     
          

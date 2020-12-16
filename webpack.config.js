@@ -16,6 +16,29 @@ module.exports = {
         path: path.join(__dirname, 'dist'),
         chunkFilename: '[name].chunk.js'
     },
+    devServer: {
+        port: '8080',
+        // historyApiFallback: {
+        //     rewrites: [
+        //         {
+        //             from: '/test/a',
+        //             to: '/test/a.html'
+        //         }
+        //     ]
+        // },
+        inline: true,
+        historyApiFallback: true,
+        hot: true,
+        proxy: {
+            '/api': {
+                target: 'https://api.yeshaojun.com',
+                changeOrigin: true,
+                pathRewrite: {
+                    '/api': '/api'
+                }
+            }
+        }
+    },
     module: {
         rules: [
             {
@@ -75,6 +98,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.join(__dirname, 'index.html')
-        })
+        }),
+        new Webpack.HotModuleReplacementPlugin()
     ]
 }

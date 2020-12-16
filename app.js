@@ -52,7 +52,19 @@
 
 // 06 文件处理
 //app.js
-import './src/commom/bg.css'
-setTimeout(()=> {
-    $('#app').html('this is jquery')
-},2000)
+// import './src/commom/bg.css'
+// setTimeout(()=> {
+//     $('#app').html('this is jquery')
+// },2000)
+
+//08（webpack dev server）
+//app.js
+// import axios from 'axios'
+// setTimeout(function() {
+//     axios.get('/api/newslist').then(res=> {
+//         console.log(res)
+//     })
+// },2000)
+if(module.hot) {
+    module.hot.accept()
+}
