@@ -1,0 +1,16 @@
+{
+  "name": "my-webpacktwo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "A.js",
+  "dependencies": {},
+  "devDependencies": {
+    "css-loader": "^3.3.0",
+    "style-loader": "^1.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
