@@ -5,7 +5,8 @@
   "main": "A.js",
   "dependencies": {
     "@babel/runtime": "^7.12.5",
-    "babel-polyfill": "^6.26.0"
+    "babel-polyfill": "^6.26.0",
+    "jquery": "^3.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -13,7 +14,8 @@
     "@babel/preset-env": "^7.12.11",
     "babel-loader": "^8.0.0-beta.0",
     "css-loader": "^3.3.0",
-    "style-loader": "^1.0.0"
+    "style-loader": "^1.0.0",
+    "webpack": "^3.10.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

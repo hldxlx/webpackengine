@@ -4,6 +4,7 @@ import test from './B'
 import "babel-polyfill"
 let a =  require('./A')
 
+
 a()
 console.log('1+2=', test(1,2))
 
@@ -26,3 +27,9 @@ async function dolist() {
 }
 
 dolist()
+
+//app.js  03(提取公共代码)
+import './childA'
+import './childB'
+import $ from 'jquery'
+export default 'app'

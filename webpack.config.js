@@ -1,12 +1,33 @@
 //配置文件
 const path = require('path')
+const Webpack  = require('webpack')
 
 module.exports = {
-    entry: './app.js',
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: '[name].bundle.js'
+    entry: {
+        'app': './app.js',
+        'page': './page.js'
     },
+    output: {
+        path: path.resolve(__dirname, './dist'),
+        filename: '[name].bundle.js',
+        chunkFilename: '[name].chunk.js'
+    },
+    plugins: [
+        new Webpack.optimize.CommonsChunkPlugin({
+            name: 'common',
+            minChunks: 2,
+            chunks: ['app', 'page']
+
+        }),
+        new Webpack.optimize.CommonsChunkPlugin({
+            name: 'vender',
+            minChunks: Infinity
+        }),
+        new Webpack.optimize.CommonsChunkPlugin({
+            name: 'manifest',
+            minChunks: Infinity
+        })
+    ],
     module: {
         rules: [
             {

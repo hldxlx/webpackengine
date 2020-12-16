@@ -10,3 +10,11 @@
     npm install babel-loader@8.0.0-beta.0 @babel/core @babel/preset-env --save-dev
     npm i babel-polyfill -save
     npm install @babel/plugin-transform-runtime --save-dev
+    
+    3提取公共代码
+    npm install webpack@3.10.0 -D
+    npm i jquery -s
+    
+    !第三方依赖 单独打包失败？？
+    在webpack4中，CommonsChunkPlugin已经不支持了，替代它的是一个叫SplitChunksPlugin的插件，惊不惊喜，意不意外
+    
