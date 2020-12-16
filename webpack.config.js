@@ -10,8 +10,9 @@ module.exports = {
         'page': './page.js'
     },
     output: {
-        path: path.resolve(__dirname, './dist'),
         filename: '[name].bundle.js',
+        publicPath: 'dist/',
+        path: path.join(__dirname, 'dist'),
         chunkFilename: '[name].chunk.js'
     },
     module: {
@@ -45,6 +46,19 @@ module.exports = {
                         }
                     ]
                 })
+            },
+            {
+                test: /\.css$/,
+                use: [ 'style-loader', 'css-loader' ]
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {}
+                    }
+                ]
             }
         ]
     },
@@ -53,6 +67,9 @@ module.exports = {
             filename: '[name].min.css',
             allChunks: false
         }),
-        new UglifyJsPlugin()
+        new UglifyJsPlugin(),
+        new Webpack.ProvidePlugin({
+            $: 'jquery'
+        })
     ]
 }

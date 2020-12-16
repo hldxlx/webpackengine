@@ -34,4 +34,20 @@
     报 Cannot read property 'compilation' of undefined
     package.json里面降低uglifyjs-webpack-plugin的版本，再install再webpack，无报错
     
+    6 文件处理
+    cnpm install file-loader --save-dev 报错‘ Path must be a string. Received undefined’
+    解决方法： pageage.json里面降低file-loader的版本
+    
+    打包成功，但是页面上依然没有图片，我们可以打开开发工具看一下，这张图片的地址，发现图片的地址不对，应该是从dist下面取，所以我们在output中加一个publicPath
+     output: {
+            filename: '[name].bundle.js',
+            publicPath: 'dist/',
+            path: path.join(__dirname, 'dist')
+        },
+    cnpm install url-loader --save-dev    
+    
+    ! 装img-loader压缩时有问题 暂没解决
+        
+         
+    
     

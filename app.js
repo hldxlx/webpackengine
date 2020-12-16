@@ -40,12 +40,19 @@
 
 
 // 05tree shaking  去除用不到的方法，变量
-import { methosA }  from './src/methods/A'
-import { chunk } from 'lodash-es'
+// import { methosA }  from './src/methods/A'
+// // import { chunk } from 'lodash-es'
+// //
+// //
+// // console.log(chunk([1,2,3,4,5,6,7],2))
+// // if(false) {
+// //     console.log('this is need delete code')
+// // }
+// // console.log(methosA())
 
-
-console.log(chunk([1,2,3,4,5,6,7],2))
-if(false) {
-    console.log('this is need delete code')
-}
-console.log(methosA())
+// 06 文件处理
+//app.js
+import './src/commom/bg.css'
+setTimeout(()=> {
+    $('#app').html('this is jquery')
+},2000)
